@@ -1,0 +1,58 @@
+body{
+    background-color: aliceblue;
+    
+}
+
+
+#dashboardText
+{
+    text-align: center;
+    margin: 15px 0px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#headDiv
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 10px;
+
+}
+#teamDetails
+{
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    align-items: center;
+    font-family: sans-serif;
+    
+}
+#showAnnualBudget
+{
+    display: flex;
+    justify-content: center;
+    margin: 7px 0px;
+}
+
+#finalAmountDiv
+{
+    visibility:hidden;
+    display: flex;
+    margin: 10px 10px;
+    flex-direction: column;
+   
+
+}
+#dealHead
+{
+    text-align: center;
+    margin: 6px 0px;
+}
+span{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner App</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Start of navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Team Budget Planner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link  active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link  " style="color: white;" href="#" data-toggle="modal" data-target="#exampleModalCenter">Add Deal</a>
+            <a class="nav-item nav-link " style="color: white;"href="#" data-toggle="modal" data-target="#addTeamModal">Add a team</a>
+            <a class="nav-item nav-link " style="color: white;"href="#"data-toggle="modal" data-target="#budgetCalculate">View Budget Summary</a>
+           </div>
+        </div>
+      </nav>
+<!--End of navbar-->
+
+      <div class="container">
+        <div id="dashboardText">
+        DASHBOARD
+        </div>
+
+        <div id="teamDetails">
+         <p>Team Name : <span id="teamname"></span></p>
+         <P>No of Deals : <span id="NoofDeals">0</span></P>
+         <p>Team Manager : <span id="manager"></span></p>
+        </div>
+            <div id="headDiv">
+            </div>
+      </div>
+
+
+
+
+
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Add a Deal</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="vendorName">Vendor Name</label>
+                      <input type="text" class="form-control" id="vendorName" placeholder="Enter Vendor Name" >
+                    
+                    </div>
+                    <div class="form-group">
+                      <label for="dealAmount">Deal Amount</label>
+                      <input type="number" class="form-control" id="dealAmount"  placeholder="Enter Deal Amount">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dealDate">Deal Date</label>
+                        <input type="date" class="form-control" id="dealDate" placeholder="Enter Deal Date">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="dealDescription">Deal Description</label>
+                        <textarea name=""  cols="25" rows="6"class="form-control" id="dealDescription" placeholder="Enter Deal Description"></textarea>
+                       
+                      </div>
+                  
+                    <button type="button" id="dealSubmitBtn" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Budget calculate modal-->
+      <div class="modal fade" id="budgetCalculate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Team Annual Budget</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Other Expenses</label>
+                  <input type="number" class="form-control" id="otherExpAmt" aria-describedby="emailHelp" placeholder="Enter email">
+               
+                </div>
+               <button type="button" id="calAnnualBudget" class="btn btn-primary">Set Annual Budget</button>
+              </form>
+              <h4 id="dealHead">Professional Deals Agreed</h4>
+              <div id="showAnnualBudget">
+               
+                <ol id="deals"></ol>
+              </div>
+                <div id="finalAmountDiv">
+                     <p>Other Expenses : <span id="otherExpSpan"></span></p>
+                     <p>Deal Expenses : <span id="dealExpSpan"></span></p> 
+                     <p>Team's Annual Budget : <span id="teamsBudgetSpan"></span></p>
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="addTeamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Add a Team</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="vendorName">Team Name</label>
+                      <input type="text" class="form-control" id="tName" placeholder="Enter Team Name" >
+                    
+                    </div>
+                    <div class="form-group">
+                      <label for="dealAmount">Team Manager Name</label>
+                      <input type="text" class="form-control" id="tmName"  placeholder="Enter Team Manager">
+                    </div>
+
+                  <button type="button" id="teamSubmitBtn" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <script  src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
